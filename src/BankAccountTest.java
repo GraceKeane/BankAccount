@@ -1,4 +1,4 @@
-// Failed test example
+// FAILED TEST EXAMPLE
 import static org.junit.Assert.*;
 
 import org.junit.After;
@@ -27,37 +27,31 @@ public class BankAccountTest {
 
 	@Test
 	public void testMakeLodgement() {
-		BankAccount account1 = new BankAccount(1000.0, 123, 2);
-		double expectedBalance = 1000;
-		double actualBalance = account1.makeLodgement(40);
-		
-		assertEquals(expectedBalance, actualBalance, 0.0);
+		BankAccount account = new BankAccount(1000,123,2);
+		account.makeLodgement(20);
+		double actual = account.getBalance();
+		assertEquals(1020,actual,0.0);
 	}
 
 	@Test
 	public void testMakeWithdrawal() {
-		BankAccount account1 = new BankAccount(1000.0, 123, 2);
-		double expectedBalance = 980;
-		double actualBalance = account1.makeWithdrawal(20);
-		
-		assertEquals(expectedBalance, actualBalance, 0.0);	}
+		BankAccount account = new BankAccount(1000,123,2);
+		double actual = account.makeWithdrawal(40);
+		assertEquals(960,actual,0.0);
+	}
 
 	@Test
 	public void testGetBalance() {
-		BankAccount account1 = new BankAccount(1000.0, 123, 2);
-
-		assertEquals(1000.0, account1.getBalance(), 0.0);
+		BankAccount account = new BankAccount(1000,123,2);
+		double actual = account.getBalance();
+		assertEquals(1000,actual,0.0);
 	}
 
 	@Test
 	public void testAddInterest() {
-		BankAccount account1 = new BankAccount(1000.0, 123, 2);
-		
-		double expected = 1020;
-		
-		account1.addInterest();
-		
-		assertEquals(expected, account1.getBalance(), 0.0);
+		BankAccount account = new BankAccount(1000,123,2);
+		account.addInterest();
+		double actual = account.getBalance();
+		assertEquals(1020,actual,0.0);
 	}
-
 }
